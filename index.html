@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify Web Player</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+</head>
+<body>
+  <div id="search">
+    <input type="text" id="query" placeholder="Search for music">
+    <button onclick="search()">Search</button>
+  </div>
+
+  <div id="search-results"></div>
+
+  <div id="now-playing">
+    <img id="cover-art" src="" alt="Cover Art">
+    <div id="track-info">
+      <p id="track-name">Track Name</p>
+      <p id="artist-name">Artist Name</p>
+    </div>
+  </div>
+
+  <div id="controls">
+    <button onclick="play()">Play</button>
+    <button onclick="pause()">Pause</button>
+    <button onclick="skip()">Skip</button>
+    <button onclick="rewind()">Rewind</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
