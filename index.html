@@ -2,32 +2,28 @@
 <html>
 <head>
   <title>Spotify Web Player</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="https://sdk.scdn.co/spotify-player.js"></script>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="search">
-    <input type="text" id="query" placeholder="Search for music">
-    <button onclick="search()">Search</button>
+  <h1>Spotify Web Player</h1>
+  <div id="player-info">
+   <div id="current-track"></div>
+<img id="album-art" src="" alt="Album Art">
+
+    <p id="artist-name">Artist Name</p>
+<button id="magnifying-glass"></button>
   </div>
+ <input type="text" id="query" placeholder="Search for tracks">
+<button onclick="search()">Search</button>
+<div id="search-results"></div>
 
-  <div id="search-results"></div>
-
-  <div id="now-playing">
-    <img id="cover-art" src="" alt="Cover Art">
-    <div id="track-info">
-      <p id="track-name">Track Name</p>
-      <p id="artist-name">Artist Name</p>
-    </div>
-  </div>
-
-  <div id="controls">
-    <button onclick="play()">Play</button>
-    <button onclick="pause()">Pause</button>
-    <button onclick="skip()">Skip</button>
-    <button onclick="rewind()">Rewind</button>
-  </div>
-
+  
+  <button id="play" onclick="play()">Play</button>
+  <button id="pause" onclick="pause()">Pause</button>
+  <button onclick="skip()">Skip</button>
+  <button onclick="rewind()">Rewind</button>
   <script src="script.js"></script>
+  <script src="styles.js></script>
 </body>
 </html>
