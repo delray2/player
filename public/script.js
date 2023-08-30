@@ -54,9 +54,12 @@ window.onSpotifyWebPlaybackSDKReady = async () => {
 // Update the display with current track info and album artwork
 function updateDisplay(state) {
   if (state && state.track_window && state.track_window.current_track) {
+    
     const { name, album, artists } = state.track_window.current_track;
     document.getElementById('current-track').textContent = `${name} - ${artists[0].name}`;
     document.getElementById('album-art').src = album.images[0].url;
+
+    
   }
 }
 
@@ -139,3 +142,84 @@ async function setActiveDevice(device_id) {
 window.addEventListener('load', () => {
   fetchAccessToken();  // Fetch the access token right away
 });
+
+let isPlaying = false;
+let isVisible = false;
+let currentVolume = 0.5;  // Default volume level
+ 
+
+// Toggle between play and pause
+function togglePlayPause() {
+  if (isPlaying) {
+    pause();
+  } else {
+    resume();
+  }
+}
+
+// Pause playback
+async function pause() {
+  await player.pause();
+  isPlaying = false;
+  document.getElementById("playPause").textContent = "⊳";
+}
+
+// Resume playback
+async function resume() {
+  await player.resume();
+  isPlaying = true;
+  document.getElementById("playPause").textContent = "▯▯";
+  
+}
+
+// Adjust the volume
+function adjustVolume(delta) {
+  currentVolume = Math.min(1, Math.max(0, currentVolume + delta));
+  player.setVolume(currentVolume);
+}
+
+// Toggle search bar visibility
+function toggleSearch() {
+if (isVisible) {
+    hide();
+  } else {
+    show();
+}
+}
+function show() {
+  const searchContainer = document.getElementById("search-container");
+  const overlay = document.getElementById("overlay");
+  const searchContaine = document.getElementById("query");
+  const searchButton = document.getElementById("searchBtn");
+  searchButton.style.display = "block";
+  searchContainer.style.display = "block";
+  searchContaine.style.display = "block";
+  overlay.style.zIndex = "10";
+  overlay.style.display = "block"
+  searchContainer.style.zIndex = 20;
+  isVisible = true;
+}
+function hide() {
+const searchContainer = document.getElementById("search-container");
+  const overlay = document.getElementById("overlay");
+  const searchContaine = document.getElementById("query");
+const searchButton = document.getElementById("searchBtn");
+searchButton.style.display = "none";
+ 
+searchContainer.style.display = "none";
+  searchContaine.style.display = "none";
+  overlay.style.zIndex = "-10";
+  searchContainer.style.zIndex = -20;
+  isVisible = false;
+}
+
+
+  
+
+
+// Execute a search query
+function executeSearch() {
+  const query = document.getElementById("query").value;
+  search(query);
+}
+
