@@ -2,28 +2,46 @@
 <html>
 <head>
   <title>Spotify Web Player</title>
-  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+ <div id="body">
+</div>
   <h1>Spotify Web Player</h1>
   <div id="player-info">
    <div id="current-track"></div>
 <img id="album-art" src="" alt="Album Art">
 
     <p id="artist-name">Artist Name</p>
-<button id="magnifying-glass"></button>
+<button id="magnifying-glass" onClick="toggleSearch()">mag</button>
   </div>
- <input type="text" id="query" placeholder="Search for tracks">
-<button onclick="search()">Search</button>
-<div id="search-results"></div>
 
+<div id="search-container">
+<div id="overlay">
+<input type="text" id="query" placeholder="Search for tracks">
+
+<button id = "searchBtn" onclick="search()">Search</button>
+<div id="search-results" overflow: visible;></div>
+
+<button id="magnifying-glass1" onClick="toggleSearch()">્</button></div>
+ 
+
+</div>
+
+
+  <div id="buttons">
   
-  <button id="play" onclick="play()">Play</button>
-  <button id="pause" onclick="pause()">Pause</button>
-  <button onclick="skip()">Skip</button>
-  <button onclick="rewind()">Rewind</button>
+    <button class="control" onclick="rewind()">⊲⊲</button>
+<button class="control" id="playPause" onclick="togglePlayPause()">⊳</button>
+  <button class="control" onclick="skip()">⊳⊳</button>
+
+<button id="magnifying-glass" onClick="toggleSearch()">્</button>
+</div>
+
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
   <script src="script.js"></script>
-  <script src="styles.js></script>
+
 </body>
 </html>
+
