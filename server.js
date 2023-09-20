@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 
 const client_id = '6a5e5be67162481fb6aa380129021898'; // Your client ID
 const client_secret = 'da49278fa798444a9ca5a9b4cce73ffc'; // Your client secret
-const redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+const redirect_uri = 'http://localhost:8881/callback'; // Your redirect uri
 
 let tokenData = {};
 
@@ -92,6 +92,6 @@ app.get('/getAccessToken', function(req, res) {
   }
 });
 
-app.listen(8888, () => {
+app.listen(8881, () => {
   console.log('Server running on http://localhost:8888');
 });
