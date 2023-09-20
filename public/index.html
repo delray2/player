@@ -1,47 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-  <title>Spotify Web Player</title>
-
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Leo's Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
- <div id="body">
-</div>
-  <h1>Spotify Web Player</h1>
-  <div id="player-info">
-   <div id="current-track"></div>
-<img id="album-art" src="" alt="Album Art">
+<!-- partial:index.partial.html -->
+<div id="body">
+    <canvas id="canvas"></canvas> <!-- Adding the canvas element -->
+    <div id="ac">
 
-    <p id="artist-name">Artist Name</p>
-<button id="magnifying-glass" onClick="toggleSearch()">mag</button>
+ <div id="player-container">
+  <div id="video-player-container">
+
+ <div id="video-player">
   </div>
+    <div id="controls">
+        <button class="control" onclick="previousTrack()"> ⏮︎ </button>
+    <button  id="playPause" onclick="togglePlayPause()">  ►  </button>
+    <button class="control" onclick="nextTrack()"> ⏭︎ </button>
+         <input type="range" id="progressBar" min="0" max="100" value="0" oninput="seekVideo(this.value)" />
+    
+     </div>
+     </div>
+  <div id="queue-container" class="queue-hidden">
+    <div id="queue" class="queue-s">
+      <!-- Queue items will be populated here -->
+    </div>
+  </div>
+</div>
+
+    </div>
+    </div>
+<img id="album-artwork" src="" alt="Album Artwork" style="position: fixed; top: 10px; left: 10px; width: 350px; height: 350px;">
+<!-- Search and Queue buttons -->
+
+ <button id="scanButton" onclick="toggleBT()">Scan for Bluetooth speakers nearby</button>
+    <div id="device-list" class="search-results">
+	<button id="refreshButton">refresh</button></div>
 
 <div id="search-container">
-<div id="overlay">
-<input type="text" id="query" placeholder="Search for tracks">
+  <div id="overlay">
+    <div id="searchquery">
+      <div id="searchtxtbtn">
+        <textarea class="use-keyboard-input" id="query"></textarea>
 
-<button id = "searchBtn" onclick="search()">Search</button>
-<div id="search-results" overflow: visible;></div>
-
-<button id="magnifying-glass1" onClick="toggleSearch()">્</button></div>
- 
-
+        <button id="b" onclick="spotifySearch()">Search</button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+   
+  </div>
+</div>
+ <div id="searchqueue">
+  <button class="magnifying-glass" onClick="toggleSearch()"> &#8981; </button>
+  <button class="showQueueButton" id="showQueueButton">|||</button>
 </div>
 
+<!-- Player Info and Controls -->
 
-  <div id="buttons">
   
-    <button class="control" onclick="rewind()">⊲⊲</button>
-<button class="control" id="playPause" onclick="togglePlayPause()">⊳</button>
-  <button class="control" onclick="skip()">⊳⊳</button>
-
-<button id="magnifying-glass" onClick="toggleSearch()">્</button>
 </div>
+    </div>
 
-  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+<script src="https://sdk.scdn.co/spotify-player.js"></script>
+
   <script src="script.js"></script>
+  <script src="keyboard.js"></script>
 
 </body>
 </html>
-
